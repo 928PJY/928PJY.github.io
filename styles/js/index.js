@@ -1,3 +1,5 @@
+var hostname = "https://op-build-sandbox2.azurewebsites.net/"
+
 $(document).ready(function () {
     $("button").click(function () {
         var markupRequest = {
@@ -10,10 +12,10 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: "https://localhost/openpublishing/api/markup",
+            url: hostname + "markup",
             headers: {
                 "Content-Type": "application/json",
-                "X-OP-BuildUserToken": "517d6ba5-48d2-47e6-9739-f1a4b69d9dcf"
+                "X-OP-BuildUserToken": "9f570a6a-4531-4d65-857e-02f010c908d9"
             },
             data: JSON.stringify(markupRequest),
             success: function (msg) {
@@ -50,10 +52,10 @@ function callRender(markupResult){
 
     $.ajax({
             type: "POST",
-            url: "https://localhost/openpublishing/api/render",
+            url: hostname + "render",
             headers: {
                 "Content-Type": "application/json",
-                "X-OP-BuildUserToken": "517d6ba5-48d2-47e6-9739-f1a4b69d9dcf"
+                "X-OP-BuildUserToken": "9f570a6a-4531-4d65-857e-02f010c908d9"
             },
             data: JSON.stringify(renderRequest),
             success: function (msg) {
